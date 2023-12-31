@@ -3474,10 +3474,6 @@ input, select, textarea {
 			position: absolute;
 			right: 0;
 			top: 0;
-<<<<<<< HEAD
-			vertical-align: middle;
-=======
->>>>>>> aa40b25 (Ahi esta perro)
 			width: 7em;
 		}
 
@@ -4032,10 +4028,6 @@ input, select, textarea {
 		}
 
 /* Gallery */
-<<<<<<< HEAD
-=======
-
->>>>>>> aa40b25 (Ahi esta perro)
 		
 .carousel-section {
 	max-width: 800px;
@@ -4103,23 +4095,6 @@ input, select, textarea {
 	cursor: pointer;
   }
   
-<<<<<<< HEAD
-  .prev,
-  .next {
-	position: absolute;
-	top: 50%;
-	font-size: 24px;
-	background: transparent;
-	border: none;
-	color: white;
-	cursor: pointer;
-	transition: color 0.3s ease-in-out;
-	border-radius: 12px; /* Cambiado a un valor cuadrado */
-	background-color: rgba(68, 71, 128, 0.5);
-	display: none;
-  }
-  
-=======
   .prev, .next{
     position: absolute;
     top: 50%;
@@ -4152,7 +4127,6 @@ input, select, textarea {
     margin: auto;
 }
 
->>>>>>> aa40b25 (Ahi esta perro)
   .prev:hover,
   .next:hover {
 	color: rgb(255, 255, 255);
@@ -4160,15 +4134,6 @@ input, select, textarea {
   }
 	
   .prev {
-<<<<<<< HEAD
-	left: 10px;
-  }
-  
-  .next {
-	right: 10px;
-  }
-  
-=======
 	left: 90px;
   }
   
@@ -4188,14 +4153,10 @@ input, select, textarea {
 
 }
 
->>>>>>> aa40b25 (Ahi esta perro)
   .lightbox .prev,
   .lightbox .next {
 	display: block;
   }
-<<<<<<< HEAD
-	
-=======
 
   #close {
     position: absolute;
@@ -4259,7 +4220,6 @@ input, select, textarea {
     text-decoration: none;
     cursor: pointer;
 }
->>>>>>> aa40b25 (Ahi esta perro)
 	
 
 /* Landing */
