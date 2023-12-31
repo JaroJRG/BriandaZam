@@ -94,7 +94,12 @@ input, select, textarea {
     }
 }
 
-
+@media (max-width: 480px) {
+	.responsive-gif {
+	  width: 280px;
+	  height: 350px;
+	}
+  }
 
 
 #pros {
@@ -3469,7 +3474,10 @@ input, select, textarea {
 			position: absolute;
 			right: 0;
 			top: 0;
+<<<<<<< HEAD
 			vertical-align: middle;
+=======
+>>>>>>> aa40b25 (Ahi esta perro)
 			width: 7em;
 		}
 
@@ -4024,6 +4032,10 @@ input, select, textarea {
 		}
 
 /* Gallery */
+<<<<<<< HEAD
+=======
+
+>>>>>>> aa40b25 (Ahi esta perro)
 		
 .carousel-section {
 	max-width: 800px;
@@ -4091,6 +4103,7 @@ input, select, textarea {
 	cursor: pointer;
   }
   
+<<<<<<< HEAD
   .prev,
   .next {
 	position: absolute;
@@ -4106,6 +4119,40 @@ input, select, textarea {
 	display: none;
   }
   
+=======
+  .prev, .next{
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    display: none;
+}
+
+.prev {
+    left: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.image-control-container {
+    position: relative;
+    width: 90%;
+    max-width: 800px;
+    margin: auto;
+}
+
+>>>>>>> aa40b25 (Ahi esta perro)
   .prev:hover,
   .next:hover {
 	color: rgb(255, 255, 255);
@@ -4113,6 +4160,7 @@ input, select, textarea {
   }
 	
   .prev {
+<<<<<<< HEAD
 	left: 10px;
   }
   
@@ -4120,11 +4168,98 @@ input, select, textarea {
 	right: 10px;
   }
   
+=======
+	left: 90px;
+  }
+  
+  .next {
+	right: 90px;
+  }
+  
+  @media screen and (max-width: 980px) {
+
+	.prev {
+		left: 30px;
+	  }
+	  
+	  .next {
+		right: 30px;
+	  }
+
+}
+
+>>>>>>> aa40b25 (Ahi esta perro)
   .lightbox .prev,
   .lightbox .next {
 	display: block;
   }
+<<<<<<< HEAD
 	
+=======
+
+  #close {
+    position: absolute;
+    color: #f1f1f1;
+    top: 10px;
+    left: 25px;
+    font-size: 35px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.lightbox {
+    position: fixed;
+    z-index: 1000;
+    /* tus otros estilos para .lightbox */
+}
+
+.close-btn {
+    position: absolute;
+    top: 100px;
+    right: 60px;
+    z-index: 1;
+    margin: 20px;
+    width: 30px;
+    height: 30px;
+    color: white;
+    text-align: center;
+    line-height: 30px;
+    font-size: 30px;
+    background-color: rgba(0, 0, 0, .5);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 980px) {
+
+	.close-btn {
+		position: absolute;
+		top: 50px;
+		right: 10px;
+		z-index: 1;
+		margin: 20px;
+		width: 30px;
+		height: 30px;
+		color: white;
+		text-align: center;
+		line-height: 30px;
+		font-size: 30px;
+		background-color: rgba(0, 0, 0, .5);
+		border-radius: 50%;
+		cursor: pointer;
+	}
+
+}
+
+
+
+#close:hover,
+#close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+>>>>>>> aa40b25 (Ahi esta perro)
 	
 
 /* Landing */

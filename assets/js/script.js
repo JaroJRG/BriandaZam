@@ -1,77 +1,60 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const gallery = document.querySelector(".thumbnail-container");
-  const prevButton = document.querySelector(".prev");
-  const nextButton = document.querySelector(".next");
-  const lightbox = document.getElementById("lightbox");
-  const lightboxContent = document.getElementById("lightbox-content");
-  const closeBtns = document.querySelectorAll(".close-btn");
+let thumbnails = Array.from(document.querySelectorAll(".thumbnail"));
+let mainImage = document.querySelector(".main-image");
+let lightboxContent = document.querySelector("#lightbox-content");
+let lightbox = document.querySelector("#lightbox");
+let closeButton = document.querySelector(".close-btn");
 
-  let currentIndex = 0;
+let currentIndex = 0;
 
-  function updateGallery() {
-    gallery.style.transform = `translateX(${-currentIndex * 70}px)`; // Ajusta el valor según tus necesidades
-  }
+function openImage(src) {
+  lightbox.style.display = 'block';
+  lightboxContent.src = src;
+  lightboxContent.style.width = '60%';
+  document.querySelector(".prev").style.display = "block";
+  document.querySelector(".next").style.display = "block";
+  currentIndex = thumbnails.findIndex(thumbnail => thumbnail.getAttribute('data-src') == src);
+}
 
-  function showPrev() {
-    if (currentIndex > 0) {
-      currentIndex--;
-      updateGallery();
-    }
-  }
+function closeImage() {
+  lightbox.style.display = 'none';
+  document.querySelector(".prev").style.display = "none";
+  document.querySelector(".next").style.display = "none";
+}
 
-  function showNext() {
-    if (currentIndex < gallery.children.length - 1) {
-      currentIndex++;
-      updateGallery();
-    }
-  }
+function nextImage(){
+    currentIndex = (currentIndex + 1) % thumbnails.length;
+    let nextThumbnail = thumbnails[currentIndex];
+    openImage(nextThumbnail.getAttribute('data-src'));
+}
 
-  function openImage(imageSrc) {
-    lightboxContent.src = imageSrc;
-    lightbox.style.display = "flex";
-    prevButton.style.display = "block";
-    nextButton.style.display = "block";
-    document.addEventListener("keydown", handleKeydown);
-  }
+function prevImage(){
+    currentIndex = (currentIndex - 1 + thumbnails.length) % thumbnails.length;
+    let prevThumbnail = thumbnails[currentIndex];
+    openImage(prevThumbnail.getAttribute('data-src'));
+}
 
-  function closeImage() {
-    lightbox.style.display = "none";
-    prevButton.style.display = "none";
-    nextButton.style.display = "none";
-    document.removeEventListener("keydown", handleKeydown);
-  }
+window.onload = function() {
+    let firstThumbnail = thumbnails[0];
+    mainImage.src = firstThumbnail.getAttribute('data-src');
+    document.getElementById('mainImage').addEventListener('click', function() {
+      openImage(this.src);
+  });
+}
 
-  function handleKeydown(event) {
-    if (event.key === "ArrowLeft") {
-      showPrev();
-    } else if (event.key === "ArrowRight") {
-      showNext();
-    } else if (event.key === "Escape") {
-      closeImage();
-    }
-  }
-
-  function init() {
-    const thumbnails = document.querySelectorAll(".thumbnail img");
-    thumbnails.forEach((thumbnail, index) => {
-      thumbnail.addEventListener("click", () => {
-        currentIndex = index;
-        openImage(thumbnail.src);
-      });
-    });
-
-    document.querySelector(".main-image").addEventListener("click", () => {
-      openImage(document.querySelector(".main-image").src);
-    });
-
-    prevButton.addEventListener("click", showPrev);
-    nextButton.addEventListener("click", showNext);
-
-    closeBtns.forEach((btn) => {
-      btn.addEventListener("click", closeImage);
-    });
-  }
-
-  init();
+document.getElementById('lightbox').addEventListener('click', function(event) {
+  if(event.target == this || event.target == closeButton) closeImage();
 });
 
+document.addEventListener('keydown', function(event) {
+  switch(event.keyCode) {
+      case 37: // si se oprime flecha izquierda
+          prevImage();
+          break;
+      case 39: // si se oprime flecha derecha
+          nextImage();
+          break;
+      case 27: // si se oprime 'esc'
+          closeImage();
+          break;
+  }
+});
